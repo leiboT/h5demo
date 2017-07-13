@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #module{
+            width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid pink;
+            position: relative;
+        }
+        #control{
+            width: 64px;
+            height: 64px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -32px 0 0 -32px;
+        }
+        #adv{
+            width: 60%;
+            height: 100%;
+            font-size: 50px;
+            text-align: center;
+            background-color: aqua;
+            position: absolute;
+            top: 0;
+            left: 20%;
+        }
+        .die{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        .play{
+            background-image: url("img/play.png");
+        }
+        .pause{
+            background-image: url("img/pause.png");
+        }
+    </style>
+</head>
+<body>
+    <div id="module">
+        <video id="v" src="res/birds.mp4">
+
+        </video>
+        <div id="adv">广告</div>
+        <div id="control" class="play"></div>
+    </div>
+    <script >
+        module.onmouseenter=function(){
+            if(v.paused)
+                control.className="show play";
+            else
+                control.className="show pause";
+        };
+        module.onmouseleave=function(){
+            //if(control.className=="show play")
+                //control.className="pause";
+            //else
+                //control.className="play"
+            control.className="";
+        };
+        control.onclick=function(){
+            if(this.className=="show play"){
+                v.play();
+                this.className="show pause";
+            }else{
+                v.pause();
+                this.className="show play";
+            }
+        };
+
+        v.onplay=function(){
+            adv.className="die";
+            control.className="show pause";
+        };
+        v.onpause=function(){
+            adv.className="show";
+            control.className="show play";
+        }
+    </script>
+</body>
+</html>
