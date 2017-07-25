@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    #audio-ctr{
+        width: 220px;
+        height: 40px;
+        background-color: #000;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .ctr-box{
+        width: 200px;
+        height: 20px;
+        margin: auto;
+        position: relative;
+        top: 10px;
+    }
+    .ctr-box>div{
+        position: absolute;
+    }
+    .audio-play,.audio-pause{
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        background-image: url("t/pause1.png");
+        background-size: 100% 100%;
+        cursor: pointer;
+    }
+    .audio-pause{
+        background-image: url("t/play1.png");
+    }
+    .audio-volume{
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        background-image: url("t/volume.png");
+        background-size: 100% 100%;
+        left: 30px;
+    }
+    .audio-set-volume{
+        width: 140px;
+        height: 6px;
+        border-radius: 4px;
+        background-color: #fff;
+        top: 7px;
+        right: 0;
+    }
+    .audio-back{
+        height: 100%;
+        width: 50%;
+        border-radius: 4px;
+        background-color: #c70c0c;
+        position: absolute;
+    }
+    .audio-back-btn{
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #fff;
+        position: absolute;
+        right: -7px;
+        top: -4px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<audio src="t/Salute.mp3" id="bgm" autoplay></audio>
+<div id="audio-ctr">
+    <div class="ctr-box">
+        <div class="audio-play"></div>
+        <div class="audio-volume"></div>
+        <div class="audio-set-volume">
+            <i class="audio-back">
+                <span class="audio-back-btn"></span>
+            </i>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $(function(){
+        //播放 or 暂停
+        $(".audio-play").click(function(){
+            if($(this).attr("class")=="audio-play"){
+                $(this).attr("class","audio-pause");
+                bgm.pause();
+            }else{
+                $(this).attr("class","audio-play");
+                bgm.play();
+            }
+        });
+
+        var setbacks=$(".audio-set-volume");
+        var EndX=parseInt(setbacks.css("width"));
+        bgm.volume=0.5;
+        //音量条处理事件
+        setbacks.on('mousedown',function(e){
+            //console.log("123");
+            $(document).on('mousemove',function(e){
+                setbacksMove(e);
+            }).one('mouseup',function(){
+                $(this).unbind('mousemove');
+            });
+        }).on('click',function(e){
+            setbacksMove(e);
+        });
+        //音量条处理函数
+        function setbacksMove(e){
+            e = e || window.event;
+            var X = (e.clientX-setbacks.offset().left);
+            //console.log(X);
+            X = (X > 0) ? (X > EndX) ? EndX : X : 0;
+            var goX = (X/EndX).toFixed(2);
+            //console.log(goX);
+            bgm.volume=goX;
+            $(".audio-back").css({
+                'width' : goX*100+"%"
+            });
+        }
+    });
+</script>
+</body>
+</html>
