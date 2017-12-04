@@ -1,4 +1,5 @@
 /**
+ *
  * two.js
  * a two-dimensional drawing api meant for modern browsers. It is renderer
  * agnostic enabling the same api for rendering in multiple contexts: webgl,
