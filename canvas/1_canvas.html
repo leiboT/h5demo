@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title></title>
+  <title>canvas_intro</title>
   <style>
     body {
       text-align: center;
@@ -18,11 +18,11 @@
     您的浏览器不支持Canvas标签！
   </canvas>bb
   <script>
-    //得到画布对应的画笔对象——绘图上下文
+    // 得到画布对应的画笔对象——绘图上下文
     var ctx = c10.getContext('2d');
     //var ctx2 = c10.getContext('2d');
     //console.log(ctx === ctx2); //true
-    console.dir(ctx);
+    console.dir(ctx); // canvas方法集中在该对象原型上
   </script>
 </body>
 </html>
