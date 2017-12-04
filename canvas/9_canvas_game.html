@@ -22,17 +22,17 @@
     var xDirection = 1;
     var y = 0;
     var yDirection = 1;
-    //定时器：动画引擎
-    setInterval(function(){
+    // 定时器：动画引擎
+    setInterval(function (){
       //清除已有内容
       ctx.clearRect(0, 0, 500, 400);
 
-      //绘制新的内容
+      // 绘制新的内容
       ctx.strokeRect(x, y, 100, 80);
       x += 10*xDirection;
       y += 10*yDirection;
 
-      //控制X轴行进方向
+      // 控制X轴行进方向
       if(x>=400){
         xDirection = -1;
       }else if(x<=0){
