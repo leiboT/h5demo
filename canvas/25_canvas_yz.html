@@ -17,16 +17,16 @@
 <h3>验证码图片</h3>
 <canvas id="c9" onclick="yz()"></canvas>
 <script>
-  var cw = 120;   //画布的总宽度
-  var ch = 30;    //画布的总高度
+  var cw = 120;   // 画布的总宽度
+  var ch = 30;    // 画布的总高度
   c9.width = cw;
   c9.height = ch;
 
-  //random number，返回指定范围内的随机整数
+  // random number，返回指定范围内的随机整数
   function rn(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   }
-  //random color，返回指定范围内的随机颜色
+  // random color，返回指定范围内的随机颜色
   function rc(min, max) {
     var r = rn(min, max);
     var g = rn(min, max);
