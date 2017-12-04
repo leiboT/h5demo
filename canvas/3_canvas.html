@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title></title>
+  <title>canvas_size</title>
   <style>
     body {
       text-align: center;
@@ -18,10 +18,12 @@
   <h3>Canvas的尺寸问题</h3>
   <canvas id="c3"></canvas>
   <script>
+    // 默认尺寸 300 x 150
+    // canvas 的尺寸不应该用css去设置，应该用DOM修改或者设置元素width，height属性
     c3.width = 500;
     c3.height = 400;
     var ctx = c3.getContext('2d');
-    ctx.fillRect(0,0, 250, 200);
+    ctx.fillRect(0, 0, 250, 200);
   </script>
 </body>
 </html>

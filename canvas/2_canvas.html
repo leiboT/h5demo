@@ -18,15 +18,15 @@
   <script>
     var ctx = c11.getContext('2d');
 
-    //左上角描边一个矩形
+    // 左上角描边一个矩形
     ctx.strokeStyle = '#f00';
-    ctx.strokeRect(0,0, 100, 80);
+    ctx.strokeRect(0, 0, 100, 80);
 
-    //右上角描边一个矩形
-    ctx.strokeRect(500-100,0, 100, 80);
+    // 右上角描边一个矩形
+    ctx.strokeRect(500-100, 0, 100, 80);
 
-    //左下角填充一个矩形
-    ctx.fillStyle = '#0ff';
+    // 左下角填充一个矩形
+    ctx.fillStyle = '#0ff'; // 下述填充将都应用该样式
     ctx.fillRect(0, 400-80, 100, 80);
 
     //右下角填充一个矩形
