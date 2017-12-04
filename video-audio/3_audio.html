@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>audio_demo</title>
 </head>
 <body>
     <label>
@@ -13,21 +13,21 @@
         cb.onchange=function(){
             if(this.checked){
                 au.play();
-                au.volume=0;
+                au.volume = 0;
                 var timer=setInterval(function task(){
                     var v=au.volume;
                     console.log(v);
                     v+=0.1;
                     if(v<=1)
-                        au.volume=v;
+                        au.volume = v;
                     else
                         clearInterval(timer)
 
                 },500);
             }else{
-                au.volume=1;
+                au.volume = 1;
                 var timer1=setInterval(function task(){
-                    var j=au.volume;
+                    var j = au.volume;
                     console.log(j);
                     j-=0.1;
                     if(j>=0)
