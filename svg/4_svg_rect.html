@@ -27,13 +27,13 @@
     <rect id="r4" width="100" height="80" x="400" y="320" style="fill:#0f0;stroke:#060;"></rect>
   </svg>
 <script>
-  //不能使用HTML DOM方式来访问SVG元素的属性
+  // 不能使用HTML DOM方式来访问SVG元素的属性
   //r4.width = 10;
   //r4.height = 800;
   //r4.x = 250;
   //r4.x.baseVal.value = 250;
 
-  //使用核心DOM操作来访问SVG元素的属性
+  // 使用核心DOM操作来访问SVG元素的属性
   var x = r4.getAttribute('x');
   console.log(x); //400
   console.log(typeof x);//string
