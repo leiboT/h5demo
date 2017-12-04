@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>video_demo</title>
     <style>
         #module{
             width: 1200px;
@@ -53,20 +53,20 @@
         <div id="control" class="play"></div>
     </div>
     <script >
-        module.onmouseenter=function(){
+        module.onmouseenter = function(){
             if(v.paused)
                 control.className="show play";
             else
                 control.className="show pause";
         };
-        module.onmouseleave=function(){
+        module.onmouseleave = function(){
             //if(control.className=="show play")
                 //control.className="pause";
             //else
                 //control.className="play"
             control.className="";
         };
-        control.onclick=function(){
+        control.onclick = function(){
             if(this.className=="show play"){
                 v.play();
                 this.className="show pause";
@@ -76,11 +76,11 @@
             }
         };
 
-        v.onplay=function(){
+        v.onplay = function(){
             adv.className="die";
             control.className="show pause";
         };
-        v.onpause=function(){
+        v.onpause = function(){
             adv.className="show";
             control.className="show play";
         }
