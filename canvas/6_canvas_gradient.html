@@ -16,10 +16,10 @@
   <h3>使用渐变对象</h3>
   <canvas id="c5" width="500" height="400"></canvas>
   <script>
-    function rn(min, max){    //random number
+    function rn(min, max){    // random number
       return Math.floor(Math.random()*(max-min)+min);
     }
-    function rc(min, max){    //random color
+    function rc(min, max){    // random color
       var r = rn(min, max);
       var g = rn(min, max);
       var b = rn(min, max);
@@ -27,7 +27,7 @@
     }
 
     var ctx = c5.getContext('2d');
-    for(var i=0; i<4; i++){
+    for(var i = 0; i<4; i++){
       var w = 50;
       var h = rn(50,300);
       var x = (2*i+1)*50;
